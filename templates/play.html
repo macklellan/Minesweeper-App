@@ -132,11 +132,11 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="Winner" tabindex="-1" role="dialog" aria-labelledby="You Won" aria-hidden="true">
+<div class="modal fade" id="Winner" tabindex="-1" role="dialog" aria-labelledby="You Won" aria-hidden="true" style = "color:black">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="selectedTest">You Won</h5>
+                <h1 class="modal-title" id="selectedTest"> You Won</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -153,8 +153,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="RecordScore();">Save Your Score</button>
+                <button type="button" class="btn btn-secondary">Close</button>
+                <button type="button" class="btn btn-primary" onclick="RecordScore(); location.href = '/leaderboards';" data-dismiss="modal">Save Your Score</button>
             </div>
         </div>
     </div>

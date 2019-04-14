@@ -120,17 +120,15 @@ function CheckWinner(){
     let c=0;
     for (var i=0;i<SIZE;i++) {
         for (var j=0;j<SIZE;j++) {
-            if(guess[i][j] == 0 ){
-                console.log(""+i+"\n");
-                if (board[i][j] == 1) {
+            if(guess[i][j] == -1 ){
+                if (board[i][j] == -1) {
                     c++;
-                    console.log(""+j+"\n");
                 }
             }
         }
     }
 
-    if(c==BOMBS){
+    if(c==0){
         score=time;
         return true;
     }
@@ -166,7 +164,6 @@ $(document).ready(function() {
         }
 
         if(CheckWinner()){
-            alert("t");
             document.getElementById("Final").innerHTML += "" + score;
             $("#Winner").modal("show");
         }
@@ -187,6 +184,6 @@ function addToLeaderboard(name, score) {
 function RecordScore(){
 
     let Name = $('#Name').val();
-
     addToLeaderboard(Name,score);
+    $("#Winner").modal("hide");
 }
