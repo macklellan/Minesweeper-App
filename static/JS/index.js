@@ -19,8 +19,8 @@ function Create2DArray() {
 }
 
 function GetIndex(num){
-    var n1 =  Math.floor(num/SIZE);
-    var n2 = num%SIZE;
+    var n1 =  Math.floor(num / SIZE);
+    var n2 = num % SIZE;
     return [n1, n2];
 }
 
@@ -41,7 +41,6 @@ function clear(n1, n2, id){
                 while(j<=jMax){
                     if(board[i][j] == 1){
                         adj++;
-                        alert(adj);
                     }
                     j++;
                 }
@@ -59,10 +58,6 @@ function clear(n1, n2, id){
 
             }
         }
-
-        console.log(board);
-        console.log("\n");
-        console.log(guess);
     }
 }
 
@@ -70,18 +65,10 @@ function flag(n1,n2,id){
     if(guess[n1][n2] == 0){
         guess[n1][n2]=-1;
         document.getElementById(id).innerHTML = "&#9873;";
-
-        console.log(board);
-        console.log("\n");
-        console.log(guess);
     }
     else if(guess[n1][n2] == -1){
         guess[n1][n2]=0;
         document.getElementById(id).innerHTML = "";
-
-        console.log(board);
-        console.log("\n");
-        console.log(guess);
     }
 }
 
@@ -102,6 +89,30 @@ function PlaceBombs(){
     }
 
     console.log(board)
+}
+
+function CheckWinner(){
+    let c=0;
+    for (var i=0;i<SIZE;i++) {
+        for (var j=0;j<SIZE;j++) {
+            if(guess[i][j] == -1 ){
+                console.log(""+i+"\n");
+                if (board[i][j] == 1) {
+                    c++;
+                    console.log(""+j+"\n");
+                }
+            }
+
+
+        }
+    }
+    console.log(c);
+    console.log(guess);
+    if(c==BOMBS){
+        alert("You Won");
+        return true;
+    }
+    else{return false;}
 }
 
 var board = Create2DArray(SIZE);
@@ -128,10 +139,11 @@ $(document).ready(function() {
         if(user=="X"){
             clear(row,col,sqrID);
         }
-        else{
+        else if(user=="O"){
             flag(row,col,sqrID);
         }
 
+        CheckWinner();
     });
 
     //reset board
@@ -140,8 +152,6 @@ $(document).ready(function() {
     })
 
 });
-
-
 
 //player move
 function playerMove() {
@@ -153,24 +163,6 @@ function playerMove() {
     else {
         alert("Wrong move");
     }
-}
-
-
-/* checking for winner */
-// winning combinations using the board indexies
-function checkWinner(board){
-    if (
-        (board[0] == player && board[1] == player && board[2] == player) ||
-        (board[3] == player && board[4] == player && board[5] == player) ||
-        (board[6] == player && board[7] == player && board[8] == player) ||
-        (board[0] == player && board[3] == player && board[6] == player) ||
-        (board[1] == player && board[4] == player && board[7] == player) ||
-        (board[2] == player && board[5] == player && board[8] == player) ||
-        (board[0] == player && board[4] == player && board[8] == player) ||
-        (board[2] == player && board[4] == player && board[6] == player)) {
-        return true;
-    }
-    return false;
 }
 
 function resetBoard() {
