@@ -18,8 +18,8 @@
     <div class="controls">
         <h3>You're playing against the computer. Select an action.</h3>
         <form action="#">
-            <input class="checkBox" type="checkbox" name="xPlayer" value="X">CLEAR SQUARE
-            <input class="checkBox" type="checkbox" name="oPlayer" value="O">FLAG SQUARE
+            <input class="checkBox" type="radio" name="cf" value="C">CLEAR SQUARE
+            <input class="checkBox" type="radio" name="cf" value="F">FLAG SQUARE
         </form>
     </div>
 
@@ -123,6 +123,7 @@
 
         <!-- needs stylling -->
         <div id ="score" class="ScoreBox">0</div>
+        <div class=linkbox onclick="location.href = '/leaderboards'">LEADERBOARD</div>
     </div>
 </div>
 </body>

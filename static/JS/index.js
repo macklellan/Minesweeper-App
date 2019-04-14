@@ -76,9 +76,7 @@ function clearAdj(n1, n2, id) {
         let jMax = Math.min(n2+1, SIZE-1);
         while(j<=jMax){
             if ( i != n1 || j != n2) {
-                if (id - (SIZE*i+j) != 9  && id - (SIZE*i+j) != 7 && id - (SIZE*i+j) != -7 && id - (SIZE*i+j) != -9 ) {
-                    clear(i, j, SIZE * i + j);
-                }
+                clear(i, j, SIZE * i + j);
             }
             j++;
         }
@@ -159,10 +157,10 @@ $(document).ready(function() {
         var row = codes[0];
         var col = codes[1];
 
-        if(user=="X"){
+        if(user=="C"){
             clear(row,col,sqrID);
         }
-        else if(user=="O"){
+        else if(user=="F"){
             flag(row,col,sqrID);
         }
 
@@ -178,29 +176,6 @@ $(document).ready(function() {
     })
 
 });
-
-//player move
-function playerMove() {
-    if($("#"+sqrId).text() == "") {
-        $("#"+sqrId).text(player);
-        board[sqrId] = player;
-        console.log(board);
-    }
-    else {
-        alert("Wrong move");
-    }
-}
-
-function resetBoard() {
-    $(".square").text("");
-    $(".checkBox").prop("checked", false);
-    user = "";
-    turn = "";
-    computer = "";
-    for(var i = 0; i < ARR_LENGTH; i++) {
-        board[i] = "";
-    }
-}
 
 function addToLeaderboard(name, score) {
     $.get("/api/add/" + name + '/' + score, function(){
