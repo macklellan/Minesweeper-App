@@ -168,7 +168,7 @@ $(document).ready(function() {
 
         if(CheckWinner()){
             alert("You won\nScore: "+score);
-            
+
         }
     });
 
