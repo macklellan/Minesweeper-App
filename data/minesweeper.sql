@@ -1,4 +1,5 @@
-USE Table minesweeper;
+
+
 DROP SCHEMA public CASCADE;
 CREATE SCHEMA public;
 
@@ -23,4 +24,5 @@ INSERT INTO finishes VALUES (2000, 'Minekiller');
 INSERT INTO finishes VALUES (3000, 'scientologist 69'); 
 INSERT INTO finishes VALUES (4000, 'Tommy Cruise');
 INSERT INTO finishes VALUES (5000, 'Travolta');
+INSERT INTO finishes VALUES (6000, 'Travolta2');
 
