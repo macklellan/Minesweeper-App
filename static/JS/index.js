@@ -35,7 +35,8 @@ function clear(n1, n2, id){
     if(guess[n1][n2] == -1){
         let adj=0;
         if(board[n1][n2] == 1){
-            alert("Your Dead");
+            document.getElementById(id).innerHTML = "<img src='static/images/mine.png'>";
+            alert("You are Dead");
             Reset();
         }
         else{

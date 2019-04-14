@@ -82,3 +82,8 @@ h1 {
     background-color: whitesmoke;
     cursor: pointer;
 }
+
+img {
+    max-width: 65%;
+    max-height: 65%;
+}
