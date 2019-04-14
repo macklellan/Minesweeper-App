@@ -1,11 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+<html lang="en" >
+
 <head>
-    <meta charset="UTF-8">
-    <title>Home page</title>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script  src="../static/js/index.js"></script>
 </head>
+
 <body>
 
+<div class="container">
+  <!-- header sections -->
+  <div class="header">
+    <h1>Tic Tac Toe</h1>
+  </div>
+  <!-- controls sections: checkboxes -->
+  <div class="controls">
+    <h3>You're playing against the computer. Choose X or O</h3>
+    <form action="#">
+      <input class="checkBox" type="checkbox" name="xPlayer" value="X">X Player
+      <input class="checkBox" type="checkbox" name="oPlayer" value="O">O Player
+    </form>
+  </div>
+  <!-- board container -->
+  <div class="boardContainer">
+    <!-- first row -->
+    <div class="row">
+      <div id="0" class="square bottom right"></div>
+      <div id="1" class="square bottom right"></div>
+      <div id="2" class="square bottom"></div>
+    </div>
+
+    <!-- second row -->
+    <div class="row">
+      <div id="3" class="square bottom right"></div>
+      <div id="4" class="square bottom right"></div>
+      <div id="5" class="square bottom"></div>
+    </div>
+
+    <!-- third row -->
+    <div class="row">
+      <div id="6" class="square right"></div>
+      <div id="7" class="square right"></div>
+      <div id="8" class="square"></div>
+    </div>
+  </div>
+</div>
 </body>
+
 </html>
