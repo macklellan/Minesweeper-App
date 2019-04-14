@@ -2,126 +2,130 @@
 <html lang="en" >
 
 <head>
-  <meta charset="UTF-8">
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <script  src="../static/js/index.js"></script>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script  src="../static/js/index.js"></script>
 </head>
 
 <body>
 
 <div class="container">
-  <!-- header sections -->
-  <div class="header">
-    <h1>Mine Sweeper</h1>
-  </div>
-  <!-- controls sections: checkboxes -->
-  <div class="controls">
-    <h3>You're playing against the computer. Select an action.</h3>
-    <form action="#">
-      <input class="checkBox" type="checkbox" name="xPlayer" value="X">CLEAR SQUARE
-      <input class="checkBox" type="checkbox" name="oPlayer" value="O">FLAG SQUARE
-    </form>
-  </div>
-  <!-- board container -->
-  <div class="boardContainer">
-    <!-- first row -->
-    <div class="row">
-      <div id="0" class="square mine"></div>
-      <div id="1" class="square mine"></div>
-      <div id="2" class="square mine"></div>
-      <div id="3" class="square mine"></div>
-      <div id="4" class="square mine"></div>
-      <div id="5" class="square mine"></div>
-      <div id="6" class="square mine"></div>
-      <div id="7" class="square mine "></div>
+    <!-- header sections -->
+    <div class="header">
+        <h1>Mine Sweeper</h1>
+    </div>
+    <!-- controls sections: checkboxes -->
+    <div class="controls">
+        <h3>You're playing against the computer. Select an action.</h3>
+        <form action="#">
+            <input class="checkBox" type="checkbox" name="xPlayer" value="X">CLEAR SQUARE
+            <input class="checkBox" type="checkbox" name="oPlayer" value="O">FLAG SQUARE
+        </form>
     </div>
 
-    <!-- second row -->
-    <div class="row">
-      <div id="8" class="square mine"></div>
-      <div id="9" class="square mine"></div>
-      <div id="10" class="square mine"></div>
-      <div id="11" class="square mine"></div>
-      <div id="12" class="square mine"></div>
-      <div id="13" class="square mine"></div>
-      <div id="14" class="square mine"></div>
-      <div id="15" class="square mine"></div>
-    </div>
+    <!-- board container -->
+    <div class="boardContainer">
+        <!-- first row -->
+        <div class="row">
+            <div id="0" class="square mine"></div>
+            <div id="1" class="square mine"></div>
+            <div id="2" class="square mine"></div>
+            <div id="3" class="square mine"></div>
+            <div id="4" class="square mine"></div>
+            <div id="5" class="square mine"></div>
+            <div id="6" class="square mine"></div>
+            <div id="7" class="square mine "></div>
+        </div>
 
-    <!-- third row -->
-    <div class="row">
-      <div id="16" class="square mine"></div>
-      <div id="17" class="square mine"></div>
-      <div id="18" class="square mine"></div>
-      <div id="19" class="square mine"></div>
-      <div id="20" class="square mine"></div>
-      <div id="21" class="square mine"></div>
-      <div id="22" class="square mine"></div>
-      <div id="23" class="square mine"></div>
-    </div>
+        <!-- second row -->
+        <div class="row">
+            <div id="8" class="square mine"></div>
+            <div id="9" class="square mine"></div>
+            <div id="10" class="square mine"></div>
+            <div id="11" class="square mine"></div>
+            <div id="12" class="square mine"></div>
+            <div id="13" class="square mine"></div>
+            <div id="14" class="square mine"></div>
+            <div id="15" class="square mine"></div>
+        </div>
 
-    <!-- fourth row -->
-    <div class="row">
-      <div id="24" class="square mine"></div>
-      <div id="25" class="square mine"></div>
-      <div id="26" class="square mine"></div>
-      <div id="27" class="square mine"></div>
-      <div id="28" class="square mine"></div>
-      <div id="29" class="square mine"></div>
-      <div id="30" class="square mine"></div>
-      <div id="31" class="square mine"></div>
-    </div>
+        <!-- third row -->
+        <div class="row">
+            <div id="16" class="square mine"></div>
+            <div id="17" class="square mine"></div>
+            <div id="18" class="square mine"></div>
+            <div id="19" class="square mine"></div>
+            <div id="20" class="square mine"></div>
+            <div id="21" class="square mine"></div>
+            <div id="22" class="square mine"></div>
+            <div id="23" class="square mine"></div>
+        </div>
 
-    <!-- fifth row -->
-    <div class="row">
-      <div id="32" class="square mine"></div>
-      <div id="33" class="square mine"></div>
-      <div id="34" class="square mine"></div>
-      <div id="35" class="square mine"></div>
-      <div id="36" class="square mine"></div>
-      <div id="37" class="square mine"></div>
-      <div id="38" class="square mine"></div>
-      <div id="39" class="square mine"></div>
-    </div>
+        <!-- fourth row -->
+        <div class="row">
+            <div id="24" class="square mine"></div>
+            <div id="25" class="square mine"></div>
+            <div id="26" class="square mine"></div>
+            <div id="27" class="square mine"></div>
+            <div id="28" class="square mine"></div>
+            <div id="29" class="square mine"></div>
+            <div id="30" class="square mine"></div>
+            <div id="31" class="square mine"></div>
+        </div>
 
-    <!-- sixth row -->
-    <div class="row">
-      <div id="40" class="square mine"></div>
-      <div id="41" class="square mine"></div>
-      <div id="42" class="square mine"></div>
-      <div id="43" class="square mine"></div>
-      <div id="44" class="square mine"></div>
-      <div id="45" class="square mine"></div>
-      <div id="46" class="square mine"></div>
-      <div id="47" class="square mine"></div>
-    </div>
+        <!-- fifth row -->
+        <div class="row">
+            <div id="32" class="square mine"></div>
+            <div id="33" class="square mine"></div>
+            <div id="34" class="square mine"></div>
+            <div id="35" class="square mine"></div>
+            <div id="36" class="square mine"></div>
+            <div id="37" class="square mine"></div>
+            <div id="38" class="square mine"></div>
+            <div id="39" class="square mine"></div>
+        </div>
 
-    <!-- seventh row -->
-    <div class="row">
-      <div id="48" class="square mine"></div>
-      <div id="49" class="square mine"></div>
-      <div id="50" class="square mine"></div>
-      <div id="51" class="square mine"></div>
-      <div id="52" class="square mine"></div>
-      <div id="53" class="square mine"></div>
-      <div id="54" class="square mine"></div>
-      <div id="55" class="square mine"></div>
-    </div>
+        <!-- sixth row -->
+        <div class="row">
+            <div id="40" class="square mine"></div>
+            <div id="41" class="square mine"></div>
+            <div id="42" class="square mine"></div>
+            <div id="43" class="square mine"></div>
+            <div id="44" class="square mine"></div>
+            <div id="45" class="square mine"></div>
+            <div id="46" class="square mine"></div>
+            <div id="47" class="square mine"></div>
+        </div>
 
-    <!-- eight row -->
-    <div class="row">
-      <div id="56" class="square mine"></div>
-      <div id="57" class="square mine"></div>
-      <div id="58" class="square mine"></div>
-      <div id="59" class="square mine"></div>
-      <div id="60" class="square mine"></div>
-      <div id="61" class="square mine"></div>
-      <div id="62" class="square mine"></div>
-      <div id="63" class="square mine"></div>
+        <!-- seventh row -->
+        <div class="row">
+            <div id="48" class="square mine"></div>
+            <div id="49" class="square mine"></div>
+            <div id="50" class="square mine"></div>
+            <div id="51" class="square mine"></div>
+            <div id="52" class="square mine"></div>
+            <div id="53" class="square mine"></div>
+            <div id="54" class="square mine"></div>
+            <div id="55" class="square mine"></div>
+        </div>
+
+        <!-- eight row -->
+        <div class="row">
+            <div id="56" class="square mine"></div>
+            <div id="57" class="square mine"></div>
+            <div id="58" class="square mine"></div>
+            <div id="59" class="square mine"></div>
+            <div id="60" class="square mine"></div>
+            <div id="61" class="square mine"></div>
+            <div id="62" class="square mine"></div>
+            <div id="63" class="square mine"></div>
+        </div>
+
+        <!-- needs stylling -->
+        <div id ="score" class="ScoreBox">0</div>
     </div>
-  </div>
 </div>
 </body>
 

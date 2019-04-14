@@ -1,8 +1,15 @@
-var sqrId, user, SIZE = 8, BOMBS = 10;
+var sqrId, user, SIZE = 8, BOMBS = 10, score, time=0;
 const ARR_LENGTH = 9;
+
 
 function PrintArray(A){
     console.log(A);
+}
+
+let v = setInterval(myTimer ,1000);
+function myTimer() {
+  time++;
+  document.getElementById("score").innerHTML = "" + time;
 }
 
 function Create2DArray() {
@@ -59,7 +66,6 @@ function clear(n1, n2, id){
 }
 
 function clearAdj(n1, n2, id) {
-
     document.getElementById(id).classList.add("clear");
 
     // Count the adjacent bombs
@@ -76,8 +82,6 @@ function clearAdj(n1, n2, id) {
         }
         i++;
     }
-
-
 }
 
 function flag(n1,n2,id){
@@ -92,7 +96,8 @@ function flag(n1,n2,id){
 }
 
 function Reset(){
-
+    time+=10000;
+    document.getElementById("score").innerHTML = ""+time;
 }
 
 function PlaceBombs(){
@@ -121,14 +126,11 @@ function CheckWinner(){
                     console.log(""+j+"\n");
                 }
             }
-
-
         }
     }
-    console.log(c);
-    console.log(guess);
+
     if(c==BOMBS){
-        alert("You Won");
+        score=time;
         return true;
     }
     else{return false;}
@@ -162,7 +164,9 @@ $(document).ready(function() {
             flag(row,col,sqrID);
         }
 
-        CheckWinner();
+        if(CheckWinner()){
+            alert("You won\nScore: "+score);
+        }
     });
 
     //reset board
