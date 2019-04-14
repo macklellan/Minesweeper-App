@@ -11,7 +11,7 @@ function Create2DArray() {
     for (var i=0;i<SIZE;i++) {
         arr[i] = [];
         for (var j=0;j<SIZE;j++) {
-            arr[i][j] = 0;
+            arr[i][j] = -1;
         }
     }
 
@@ -25,7 +25,7 @@ function GetIndex(num){
 }
 
 function clear(n1, n2, id){
-    if(guess[n1][n2] == 0){
+    if(guess[n1][n2] == -1){
         let adj=0;
         if(board[n1][n2] == 1){
             alert("Your Dead");
@@ -48,13 +48,11 @@ function clear(n1, n2, id){
             }
 
             if (adj == 0) {
+                guess[n1][n2] = adj;
                 clearAdj(n1 ,n2 , id);
-
             } else {
-
                 guess[n1][n2] = adj;
                 document.getElementById(id).innerHTML = "" + adj;
-
             }
         }
     }
@@ -64,8 +62,6 @@ function clearAdj(n1, n2, id) {
 
     document.getElementById(id).classList.add("clear");
 
-    let adj=0;
-
     // Count the adjacent bombs
     let i = Math.max(n1-1,0);
     let iMax = Math.min(n1+1, SIZE-1);
@@ -73,42 +69,24 @@ function clearAdj(n1, n2, id) {
         let j = Math.max(n2-1,0);
         let jMax = Math.min(n2+1, SIZE-1);
         while(j<=jMax){
-            if(board[i][j] == 1){
-                adj++;
-            } else {
-                // alert(id);
+            if ( i != n1 || j != n2) {
+                clear(i, j, SIZE * i + j);
             }
             j++;
         }
         i++;
     }
 
-    if (adj == 0) {
-        // Count the adjacent bombs
-        let i = Math.max(n1-1,0);
-        let iMax = Math.min(n1+1, SIZE-1);
-        while(i<=iMax){
-            let j = Math.max(n2-1,0);
-            let jMax = Math.min(n2+1, SIZE-1);
-            while(j<=jMax){
-                if ( i != n1 && j != n2) {
-                    clearAdj(i, j, SIZE * i + j);
-                }
-                j++;
-            }
-            i++;
-        }
-    }
 
 }
 
 function flag(n1,n2,id){
-    if(guess[n1][n2] == 0){
-        guess[n1][n2]=-1;
+    if(guess[n1][n2] == -1){
+        guess[n1][n2]=0;
         document.getElementById(id).innerHTML = "&#9873;";
     }
-    else if(guess[n1][n2] == -1){
-        guess[n1][n2]=0;
+    else if(guess[n1][n2] == 0){
+        guess[n1][n2]=-1;
         document.getElementById(id).innerHTML = "";
     }
 }
@@ -123,7 +101,7 @@ function PlaceBombs(){
     while(i<BOMBS){
         n1 = Math.floor((Math.random() * 8));
         n2 = Math.floor((Math.random() * 8));
-        if(board[n1][n2]== 0){
+        if(board[n1][n2]== -1){
             board[n1][n2] = 1;
             i++;
         }
@@ -136,7 +114,7 @@ function CheckWinner(){
     let c=0;
     for (var i=0;i<SIZE;i++) {
         for (var j=0;j<SIZE;j++) {
-            if(guess[i][j] == -1 ){
+            if(guess[i][j] == 0 ){
                 console.log(""+i+"\n");
                 if (board[i][j] == 1) {
                     c++;
