@@ -1,47 +1,49 @@
 body {
-  background-color: #21546e;
-  font-family: verdana, sans-serif;
-  color: white;
+    background-color: #21546e;
+    font-family: verdana, sans-serif;
+    color: white;
 }
 
 .container {
-  margin: 0 auto;
-  text-align: center;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .header {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 h1 {
-  font-size: 50px;
+    font-size: 50px;
 }
 
 .controls {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .checkBox {
-  margin-left: 40px; 
+    margin-left: 40px;
 }
 
 .boardContainer {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .row {
-  font-size: 0px;
+    font-size: 0px;
 }
 
 .row > div {
-  display: inline-block;
-  font-size: 90px;
-/*   border: solid 1px white; */
-  width: 50px;
-  height: 50px;
-  text-align: center;
-  vertical-align: top;
-  line-height: 100px;
+    padding: 0;
+    display: inline-block;
+    font-size: 40px;
+    color: black;
+    /*   border: solid 1px white; */
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: top;
+    line-height: 50px;
 }
 
 .mine {
@@ -60,5 +62,5 @@ h1 {
 }
 
 .reset {
-  margin-top: 100px;
+    margin-top: 100px;
 }

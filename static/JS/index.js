@@ -2,7 +2,7 @@ var sqrId, user, SIZE = 8, BOMBS = 10;
 const ARR_LENGTH = 9;
 
 function PrintArray(A){
-        console.log(A);
+    console.log(A);
 }
 
 function Create2DArray() {
@@ -19,16 +19,65 @@ function Create2DArray() {
 }
 
 function GetIndex(num){
-    var n1 = num%SIZE;
+    var n1 =  Math.floor(num/SIZE);
     var n2 = num%SIZE;
     return [n1, n2];
 }
 
-function clear(n1,n2,id){
+function clear(n1, n2, id){
+    if(guess[n1][n2] == 0){
+        let adj=0;
+        if(board[n1][n2] == 1){
+            alert("Your Dead");
+            Reset();
+        }
+        else{
+            // Count the adjacent bombs
+            let i = Math.max(n1-1,0);
+            let iMax = Math.min(n1+1, SIZE-1);
+            while(i<=iMax){
+                let j = Math.max(n2-1,0);
+                let jMax = Math.min(n2+1, SIZE-1);
+                while(j<=jMax){
+                    if(board[i][j] == 1){
+                        adj++;
+                        alert(adj);
+                    }
+                    j++;
+                }
+                i++;
+            }
 
+            guess[n1][n2]=adj;
+            document.getElementById(id).innerHTML = "" + adj;
+        }
+
+        console.log(board);
+        console.log("\n");
+        console.log(guess);
+    }
 }
 
 function flag(n1,n2,id){
+    if(guess[n1][n2] == 0){
+        guess[n1][n2]=-1;
+        document.getElementById(id).innerHTML = "f";
+
+        console.log(board);
+        console.log("\n");
+        console.log(guess);
+    }
+    else if(guess[n1][n2] == -1){
+        guess[n1][n2]=0;
+        document.getElementById(id).innerHTML = "";
+
+        console.log(board);
+        console.log("\n");
+        console.log(guess);
+    }
+}
+
+function Reset(){
 
 }
 
@@ -49,7 +98,6 @@ function PlaceBombs(){
 
 var board = Create2DArray(SIZE);
 var guess = Create2DArray(SIZE);
-
 PlaceBombs();
 
 $(document).ready(function() {
