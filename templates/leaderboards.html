@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -11,19 +11,24 @@
 </head>
 
 
-<body>
-
-    <h1 align="center">Leaderboard</h1>
-
-    <div class="jumbotron">
-        <ul class="list-group">
-          <li class="list-group-item list-group-item-primary"><div style="font-weight:bold;">1: {{ result[0] }}</div></li>
-          <li class="list-group-item list-group-item-secondary"><div style="font-weight:bold;">2: {{ result[1] }}</div></li>
-          <li class="list-group-item list-group-item-success"><div style="font-weight:bold;">3: {{ result[2] }}</div></li>
-          <li class="list-group-item list-group-item-danger"><div style="font-weight:bold;">4: {{ result[3] }}</div></li>
-          <li class="list-group-item list-group-item-warning"><div style="font-weight:bold;">5: {{ result[4] }}</div></li>
-          <li class="list-group-item list-group-item-info"><div style="font-weight:bold;">6: {{ result[5] }}</div></li>
-        </ul>
+<body style="background-color: #21546e;font-family: verdana, sans-serif;color: white;">
+    <div class="container">
+        <br>
+        <h1 align="center">Leaderboard</h1>
+        <br>
+        <div class="jumbotron">
+            <h3 style="color: black; text-align: left;"> TOP SCORES</h3>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-primary"><div style="font-weight:bold; display: inline-block;">#1</div>   {{ result[0][0] }} secs by {{ result[0][1] }}</li>
+              <li class="list-group-item list-group-item-secondary"><div style="font-weight:bold;display: inline-block;">#2</div>   {{ result[1][0] }}  secs by  {{ result[1][1] }}</li>
+              <li class="list-group-item list-group-item-success"><div style="font-weight:bold;display: inline-block;">#3</div>   {{ result[2][0] }}  secs by  {{ result[2][1] }}</li>
+              <li class="list-group-item list-group-item-danger"><div style="font-weight:bold;display: inline-block;">#4</div>   {{ result[3][0] }}  secs by  {{ result[3][1] }}</li>
+              <li class="list-group-item list-group-item-warning"><div style="font-weight:bold;display: inline-block;">#5</div>   {{ result[4][0] }}  secs by  {{ result[4][1] }}</li>
+              <li class="list-group-item list-group-item-info"><div style="font-weight:bold;display: inline-block;">#6</div>   {{ result[5][0] }}  secs by  {{ result[5][1] }}</li>
+            </ul>
+        </div>
+        <br>
+        <div class=linkbox onclick="location.href = '/play'">PLAY</div>
     </div>
 </body>
 </html>
