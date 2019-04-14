@@ -26,7 +26,7 @@ h1 {
 }
 
 .boardContainer {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .row {
@@ -44,19 +44,10 @@ h1 {
   line-height: 100px;
 }
 
-.right {
-  border-right: solid 5px white;
-}
-
-.bottom {
-  border-bottom: solid 5px white;
-}
-
 .mine {
   border-style: solid;
-  border-width: 3px;
-  border-color: darkgrey;
-  background-color: whitesmoke;
+  border-width: 2px;
+  border-color: white;
 }
 
 .reset {
