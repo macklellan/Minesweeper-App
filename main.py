@@ -16,37 +16,50 @@ sql_file = ['data/minesweeper.sql']
 @app.route('/api/add/<name>/<score>', methods=['GET'])
 def execute_sql(name, score):
 
-    conn = util.connect_db(db_connect_command)
-    cursor = conn.cursor()
+	conn = util.connect_db(db_connect_command)
+	cursor = conn.cursor()
 
-    try:
-        cursor.execute("INSERT INTO finishes (score, name) VALUES (%s, %s);", (score, name))
-        conn.commit()
-        conn.close()
-        return render_template("restart.html")
-    except psycopg2.Error as e:
-        conn.rollback()
-        conn.close()
-        print(errorcodes.lookup(e.pgcode))
-        return errorcodes.lookup(e.pgcode[:2])
+	try:
+		cursor.execute("INSERT INTO finishes (score, name) VALUES (%s, %s);", (score, name))
+		conn.commit()
+		conn.close()
+		return render_template("restart.html")
+	except psycopg2.Error as e:
+		conn.rollback()
+		conn.close()
+		print(errorcodes.lookup(e.pgcode))
+		return errorcodes.lookup(e.pgcode[:2])
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+	return render_template("index.html")
 
 @app.route("/play", methods=['GET', 'POST'])
 def play():
-    return render_template("play.html")
+	return render_template("play.html")
 
 @app.route("/leaderboards", methods=['GET', 'POST'])
 def leaderboards():
-    return render_template("leaderboards.html")
+	conn = util.connect_db(db_connect_command)
+	cursor = conn.cursor()
+	results = [0, '']
+	try:
+		cursor.execute("SELECT * FROM finishes ORDER BY score DESC LIMIT 6")
+		rows = cursor.fetchall()
+		conn.commit()
+		conn.close()
+		return render_template("leaderboards.html", result = rows)
+	except psycopg2.Error as e:
+		conn.rollback()
+		conn.close()
+		print(errorcodes.lookup(e.pgcode))
+		return errorcodes.lookup(e.pgcode[:2])
 
-@app.route("/resetdb")
+@app.route("/api/resetdb")
 def db():
 	util.init_db(sql_file, db_connect_command)
 	return "CASH MONEY!!! YOU JUST RESET THE DATABASE!!"
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    util.init_db(sql_file, db_connect_command)
+	app.run(debug=True)
+	util.init_db(sql_file, db_connect_command)
