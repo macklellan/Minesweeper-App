@@ -43,7 +43,7 @@ def leaderboards():
 	cursor = conn.cursor()
 	results = [0, '']
 	try:
-		cursor.execute("SELECT * FROM finishes ORDER BY score DESC LIMIT 6")
+		cursor.execute("SELECT * FROM finishes ORDER BY score ASC LIMIT 6")
 		rows = cursor.fetchall()
 		conn.commit()
 		conn.close()
