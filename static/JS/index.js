@@ -48,8 +48,16 @@ function clear(n1, n2, id){
                 i++;
             }
 
-            guess[n1][n2]=adj;
-            document.getElementById(id).innerHTML = "" + adj;
+            if (adj == 0) {
+
+                document.getElementById(id).classList.add("clear");
+
+            } else {
+
+                guess[n1][n2] = adj;
+                document.getElementById(id).innerHTML = "" + adj;
+
+            }
         }
 
         console.log(board);
@@ -61,7 +69,7 @@ function clear(n1, n2, id){
 function flag(n1,n2,id){
     if(guess[n1][n2] == 0){
         guess[n1][n2]=-1;
-        document.getElementById(id).innerHTML = "f";
+        document.getElementById(id).innerHTML = "&#9873;";
 
         console.log(board);
         console.log("\n");
