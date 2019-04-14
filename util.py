@@ -24,6 +24,7 @@ def init_db(filename_list, connect_command):
             conn.close()
             return 1
         except psycopg2.Error as e:
+            print(errorcodes.lookup(e.pgcode))
             print(errorcodes.lookup(e.pgcode[:2]))
             return 0
 
