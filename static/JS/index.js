@@ -70,6 +70,7 @@ function clearAdj(n1, n2, id) {
         let jMax = Math.min(n2+1, SIZE-1);
         while(j<=jMax){
             if ( i != n1 || j != n2) {
+                // if (id - (SIZE*i+j) != 9  && id - (SIZE*i+j) != 7 && id - (SIZE*i+j) != -7 && id - (SIZE*i+j) != -9 )
                 clear(i, j, SIZE * i + j);
             }
             j++;
