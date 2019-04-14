@@ -41,7 +41,6 @@ function clear(n1, n2, id){
                 while(j<=jMax){
                     if(board[i][j] == 1){
                         adj++;
-                        alert(adj);
                     }
                     j++;
                 }
@@ -49,8 +48,7 @@ function clear(n1, n2, id){
             }
 
             if (adj == 0) {
-
-                document.getElementById(id).classList.add("clear");
+                clearAdj(n1 ,n2 , id);
 
             } else {
 
@@ -64,6 +62,48 @@ function clear(n1, n2, id){
         console.log("\n");
         console.log(guess);
     }
+}
+
+function clearAdj(n1, n2, id) {
+
+    document.getElementById(id).classList.add("clear");
+
+    let adj=0;
+
+    // Count the adjacent bombs
+    let i = Math.max(n1-1,0);
+    let iMax = Math.min(n1+1, SIZE-1);
+    while(i<=iMax){
+        let j = Math.max(n2-1,0);
+        let jMax = Math.min(n2+1, SIZE-1);
+        while(j<=jMax){
+            if(board[i][j] == 1){
+                adj++;
+            } else {
+                // alert(id);
+            }
+            j++;
+        }
+        i++;
+    }
+
+    if (adj == 0) {
+        // Count the adjacent bombs
+        let i = Math.max(n1-1,0);
+        let iMax = Math.min(n1+1, SIZE-1);
+        while(i<=iMax){
+            let j = Math.max(n2-1,0);
+            let jMax = Math.min(n2+1, SIZE-1);
+            while(j<=jMax){
+                if ( i != n1 && j != n2) {
+                    clearAdj(i, j, SIZE * i + j);
+                }
+                j++;
+            }
+            i++;
+        }
+    }
+
 }
 
 function flag(n1,n2,id){
