@@ -45,9 +45,18 @@ h1 {
 }
 
 .mine {
-  border-style: solid;
-  border-width: 2px;
-  border-color: white;
+    border-style: solid;
+    border-width: 3px;
+    border-color: darkgrey;
+    background-color: whitesmoke;
+}
+
+.flag {
+    background-color: lightslategray;
+}
+
+.clear {
+    background-color: darkgrey;
 }
 
 .reset {
