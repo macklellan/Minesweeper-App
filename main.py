@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 import os
 import psycopg2
-from psycopg2 import errorcodes 
+from psycopg2 import errorcodes
 import socket
 import util
 
@@ -15,14 +15,13 @@ sql_file = ['data/minesweeper.sql']
 
 @app.route('/api/add/<name>/<score>', methods=['GET'])
 def execute_sql(name, score):
-
 	conn = util.connect_db(db_connect_command)
 	cursor = conn.cursor()
-
 	try:
 		cursor.execute("INSERT INTO finishes (score, name) VALUES (%s, %s);", (score, name))
 		conn.commit()
 		conn.close()
+		print("t2")
 		return render_template("restart.html")
 	except psycopg2.Error as e:
 		conn.rollback()

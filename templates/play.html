@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <title>Mine Sweeper</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script  src="../static/js/index.js"></script>
 </head>
 <body>
@@ -16,7 +18,7 @@
     </div>
     <!-- controls sections: checkboxes -->
     <div class="controls">
-        <h3>You're playing against the computer. Select an action.</h3>
+        <h3>Select click mode</h3>
         <form action="#">
             <input class="checkBox" type="radio" name="cf" value="C">CLEAR SQUARE
             <input class="checkBox" type="radio" name="cf" value="F">FLAG SQUARE
@@ -124,6 +126,37 @@
         <!-- needs stylling -->
         <div id ="score" class="ScoreBox">0</div>
         <div class=linkbox onclick="location.href = '/leaderboards'">LEADERBOARD</div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="Winner" tabindex="-1" role="dialog" aria-labelledby="You Won" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="selectedTest">You Won</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" id="Name" placeholder="Input Your Name">
+                    </div>
+                    <div class="form-group">
+                        <div id ="Final" class="ScoreBox">Your Score: </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="RecordScore();">Save Your Score</button>
+            </div>
+        </div>
     </div>
 </div>
 </body>

@@ -165,8 +165,9 @@ $(document).ready(function() {
         }
 
         if(CheckWinner()){
-            alert("You won\nScore: "+score);
-
+            alert("t");
+            document.getElementById("Final").innerHTML += "" + score;
+            $("#Winner").modal("show");
         }
     });
 
@@ -180,4 +181,11 @@ $(document).ready(function() {
 function addToLeaderboard(name, score) {
     $.get("/api/add/" + name + '/' + score, function(){
     });
+}
+
+function RecordScore(){
+
+    let Name = $('#Name').val();
+
+    addToLeaderboard(Name,score);
 }
