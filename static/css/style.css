@@ -87,3 +87,11 @@ img {
     max-width: 65%;
     max-height: 65%;
 }
+
+#footer {
+	clear: both;
+	padding: 10px;
+	color: white;
+	text-align: right;
+    font-size: 10px;
+}
