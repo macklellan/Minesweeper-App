@@ -36,6 +36,7 @@ function clear(n1, n2, id){
         let adj=0;
         if(board[n1][n2] == 1){
             document.getElementById(id).innerHTML = "<img src='static/images/mine.png'>";
+            document.getElementById("smiley").src = "static/images/dead.png";
             alert("You are Dead");
             Reset();
         }
